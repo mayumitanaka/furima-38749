@@ -62,7 +62,7 @@
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
-| post_code            | integer    | null: false                    |
+| post_code            | string     | null: false                    |
 | prefecture_id        | integer    | null: false                    |
 | city                 | string     | null: false                    |
 | street               | string     | null: false                    |
