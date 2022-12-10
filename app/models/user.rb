@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :first_name
   end
 
-  with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/, message: '全角カタカナを使用してください' } do
+  with_options presence: true, format: { with: /\A[ァ-ヶ一]+\z/, message: '全角カタカナを使用してください' } do
     validates :last_name_kana
     validates :first_name_kana
   end
@@ -20,6 +20,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :birthday, presence: true
 
-  has_many :items, dependent: :destroy
-  has_many :orders
+  # has_many :items, dependent: :destroy
+  # has_many :orders
 end
