@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  with_options presence: true, numericality: { :only_integer, in: 300..9999999 }, format: { with: /\d/ } do
+  with_options presence: true, numericality: { in: 300..9999999 }, format: { with: /\d/ } do
     validates :item_price
   end
 

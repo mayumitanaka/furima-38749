@@ -1,4 +1,4 @@
-class shipping_fee_status < ActiveHash::Base
+class Shipping_fee_status < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '着払い(購入者負担)' },
