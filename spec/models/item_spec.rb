@@ -59,8 +59,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Item category can't be blank"
       end
+      it 'item_category_idに「---」が選択されている場合は登録できない' do
+        @item.item_category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Item category can't be blank"
+      end
       it 'item_status_idが空では登録できない' do
         @item.item_status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Item status can't be blank"
+      end
+      it 'item_status_idに「---」が選択されている場合は登録できない' do
+        @item.item_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Item status can't be blank"
       end
@@ -69,13 +79,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping fee status can't be blank"
       end
+      it 'shipping_fee_status_idに「---」が選択されている場合は登録できない' do
+        @item.shipping_fee_status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Shipping fee status can't be blank"
+      end
       it 'prefecture_idが空では登録できない' do
         @item.prefecture_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
+      it 'prefecture_idに「---」が選択されている場合は登録できない' do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Prefecture can't be blank"
+      end
       it 'scheduled_delivery_idが空では登録できない' do
         @item.scheduled_delivery_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Scheduled delivery can't be blank"
+      end
+      it 'scheduled_delivery_idに「---」が選択されている場合は登録できない' do
+        @item.scheduled_delivery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Scheduled delivery can't be blank"
       end
