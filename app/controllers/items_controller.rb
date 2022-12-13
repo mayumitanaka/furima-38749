@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @order_address = OrderAddress.new
   end
 
   def edit
