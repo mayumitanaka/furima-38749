@@ -2,10 +2,10 @@ class OrderAddress
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :post_code, :prefecture_id, :city, :street, :building, :phone_number, :token
 
-  validates :token,         presence: true
+  validates :token, presence: true
 
-  with_options presence: true, format: { with: /\A\d{3}[-]\d{4}\z/,
-                                        message: "is invalid", allow_blank: true } do
+  with_options presence: true, format: { with: /\A\d{3}-\d{4}\z/,
+                                         message: 'is invalid', allow_blank: true } do
     validates :post_code
   end
 
@@ -15,7 +15,7 @@ class OrderAddress
   validates :city,          presence: true
   validates :street,        presence: true
 
-  with_options presence: true, format: { with: /\A\d{10,11}\z/, message: "is invalid", allow_blank: true } do
+  with_options presence: true, format: { with: /\A\d{10,11}\z/, message: 'is invalid', allow_blank: true } do
     validates :phone_number
   end
 
