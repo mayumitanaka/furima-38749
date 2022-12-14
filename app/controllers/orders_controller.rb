@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   def index
     @order_address = OrderAddress.new
     @item = Item.find(params[:item_id])
-    return unless @item.user_id == current_user.id
+    return if @item.user_id != current_user.id && @item.order.blank?
 
     redirect_to root_path
   end
