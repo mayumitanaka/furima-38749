@@ -3,14 +3,14 @@ class OrderAddress
   attr_accessor :user_id, :item_id, :post_code, :prefecture_id, :city, :street, :building, :phone_number, :token
 
   with_options presence: true do
-    validates :token, presence: true
-    validates :post_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid', allow_blank: true }
+    validates :token
+    validates :post_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'は不正な値です', allow_blank: true }
     validates :user_id
     validates :item_id
-    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :prefecture_id, numericality: { other_than: 1, message: 'を入力してください' }
     validates :city
     validates :street
-    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'is invalid', allow_blank: true }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は不正な値です', allow_blank: true }
   end
 
   def save
